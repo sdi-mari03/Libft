@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 17:53:09 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/04/17 18:02:42 by sdi-mari         ###   ########.fr       */
+/*   Created: 2023/04/17 18:45:48 by sdi-mari          #+#    #+#             */
+/*   Updated: 2023/04/17 18:49:29 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include "linft.h"
 
-int	ft_isdigit(int c)
+void
+	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (c >= '0' && c <= '9')
-		return (c);
+	siez_t	i;
+
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		*(char *)(dest + i) = *(char *)(src + i);
+		++i;
+	}
+	return (dest);
 }

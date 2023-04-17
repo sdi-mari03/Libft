@@ -1,11 +1,24 @@
-int ft_strlen(char *str)
-{
-    int count;
-    count = 0;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/17 18:05:56 by sdi-mari          #+#    #+#             */
+/*   Updated: 2023/04/17 18:44:51 by sdi-mari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    while (str[count] != '/0')
-    {
-        ++count;
-    }
-    return (count);
+#include "libft.h"
+
+size_t
+	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+			++i;
+	return (i);
 }
