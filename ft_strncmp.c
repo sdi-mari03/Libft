@@ -6,11 +6,11 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:36:16 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/05/16 17:05:34 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:13:37 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ¨libft.h¨
+#include "libft.h"
 
 static	int cmp_char(char c1, char c2)
 {

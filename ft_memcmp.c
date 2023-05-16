@@ -6,11 +6,11 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:02:29 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/05/16 17:10:53 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:13:15 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ¨libft.h¨
+#include "libft.h"
 
 void	*ft_memcmp(const void *s1, const void *s2, size_t n)
 {

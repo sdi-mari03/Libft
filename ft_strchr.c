@@ -6,11 +6,11 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:18:59 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/05/16 16:48:19 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:14:09 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ¨libft.h¨
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
