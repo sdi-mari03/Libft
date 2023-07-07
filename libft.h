@@ -6,7 +6,7 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 18:30:50 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/07 18:45:21 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:07:06 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,8 @@ char	*ft_strnst(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(const char *s1);
+
 
 #endif
