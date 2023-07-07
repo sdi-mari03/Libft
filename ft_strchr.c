@@ -6,7 +6,7 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:18:59 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/05/16 17:14:09 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:23:49 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 char	*ft_strchr(const char *s, int c)
 {
 	int	i;
-	
+
 	if (!s)
-	return (NULL);
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-		return ((char*)(s + i));
-		++i;	
+			return ((char *)(s + i));
+		++i;
 	}
 	if (s[i] == (char)c)
-	return ((char*)(s + i));
+		return ((char *)(s + i));
 	return (NULL);
 }

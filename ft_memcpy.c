@@ -6,16 +6,15 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 18:45:48 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/04/17 18:52:00 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:46:02 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void
-	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	siez_t	i;
+	size_t	i;
 
 	if (!dest)
 		return (NULL);

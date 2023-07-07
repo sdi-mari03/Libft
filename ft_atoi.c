@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 18:05:56 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/07 18:29:16 by sdi-mari         ###   ########.fr       */
+/*   Created: 2023/07/07 18:00:56 by sdi-mari          #+#    #+#             */
+/*   Updated: 2023/07/07 18:25:58 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	int		i;
+	int		is_neg;
+	int		res;
 
+	if (!str)
+		return (0);
 	i = 0;
-	while (s[i])
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || \
+		str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		++i;
-	return (i);
+	is_neg = 1;
+	if (str[i] == '-')
+		is_neg = -1;
+	if (is_neg == -1 || str[i] == '+')
+		++i;
+	res = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+		res = (res * 10) + (str[i++] - '0');
+	return (res * is_neg);
 }

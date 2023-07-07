@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 12:02:52 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/07 18:13:29 by sdi-mari         ###   ########.fr       */
+/*   Created: 2023/07/07 17:40:31 by sdi-mari          #+#    #+#             */
+/*   Updated: 2023/07/07 18:46:30 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strnst(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	dest_length;
-	size_t	src_length;
 
-	src_length = ft_strlen(src);
-	dest_length = ft_strlen(dst);
-	j = dest_length;
+	if (!haystack || !needle)
+		return (NULL);
+	if (!needle || !needle [0])
+		return ((char *)haystack);
 	i = 0;
-	if (dest_length < size - 1 && size > 0)
+	while (haystack[i] && i < len)
 	{
-		while (src[i] && dest_length + i < size - 1)
-		{
-			dst[j] = src[i];
+		j = 0;
+		while (haystack[i + j] && needle [j] && i + j < len && \
+			haystack[i + j] == needle[j])
 			++j;
-			++i;
-		}
-		dst[j] = 0;
+		if (!needle[j])
+			return ((char *)(haystack + i));
+		++i;
 	}
-	if (dest_length >= size)
-		dest_length = size;
-	return (dest_length + src_length);
+	return (NULL);
 }
