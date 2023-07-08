@@ -6,7 +6,7 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 18:30:50 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/07 19:07:06 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/08 21:03:19 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+char	*ft_strtrim(const char *s1, const char *set);
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int nb, int fd);
 
 
 #endif
