@@ -6,7 +6,7 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 18:53:50 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/07 18:28:27 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:48:31 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	int	i;
+	char	*d;
+	char	*s;
+	char	*lasts;
+	char	*lastd;
 
-	if (!dest || !src)
+	if (dest == NULL && src == NULL)
 		return (NULL);
-	if (dest > src)
+	if (len == 0)
+		return (dest);
+	d = dest;
+	s = (char *)src;
+	if (d < s)
 	{
-		i = (int)len - 1;
-		while (i >= 0)
-		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			--i;
-		}
+		while (len--)
+			*d++ = *s++;
 	}
 	else
 	{
-		i = 0;
-		while (i < (int)len)
-		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			++i;
-		}
+		lasts = s + (len - 1);
+		lastd = d + (len - 1);
+		while (len--)
+			*lastd-- = *lasts--;
 	}
 	return (dest);
 }

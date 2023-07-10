@@ -6,24 +6,46 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 21:00:10 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/08 21:03:04 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:39:59 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+int	check_int(int n, int fd)
 {
-	unsigned int	nbr;
-
-	if (nbr < 0)
+	if (n == -2147483648)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
+		write(fd, "-2147483648", 11);
+		return (1);
 	}
 	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
+		return (0);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	c;
+	long	longnb;
+
+	if (check_int(n, fd) == (1))
+		return ;
+	longnb = n;
+	if (longnb < 0)
+	{
+		write (fd, "-", 1);
+		longnb *= -1;
+	}
+	if (longnb < 10)
+	{
+		c = longnb + '0';
+		write (fd, &c, 1);
+	}
+	else
+	{
+		c = longnb % 10 + '0';
+		ft_putnbr_fd (longnb / 10, fd);
+		write (fd, &c, 1);
+	}
+	return ;
 }

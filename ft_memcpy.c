@@ -6,7 +6,7 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 18:45:48 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/07 18:46:02 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:49:37 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	int				i;
+	unsigned char	*dest_p;
+	const char		*src_p;
 
-	if (!dest)
+	if (dest == NULL && src == NULL)
 		return (NULL);
+	if (n == 0)
+		return (dest);
 	i = 0;
-	while (i < n)
+	dest_p = dest;
+	src_p = src;
+	while (n > 0)
 	{
-		*(char *)(dest + i) = *(char *)(src + i);
-		++i;
+		dest_p[i] = src_p[i];
+		i++;
+		n--;
 	}
 	return (dest);
 }

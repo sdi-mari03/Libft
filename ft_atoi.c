@@ -6,31 +6,48 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:00:56 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/07 18:25:58 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:55:34 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+static int	max_nmb(int value, int flag, int j)
 {
-	int		i;
-	int		is_neg;
-	int		res;
-
-	if (!str)
+	value *= flag;
+	if (j >= 20 && flag == 1)
+		return (-1);
+	else if (j >= 20 && flag == -1)
 		return (0);
+	else
+		return (value);
+}
+
+int	ft_atoi(const char *nptr)
+{
+	int	i;
+	int	flag;
+	int	value;
+	int	j;
+
 	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || \
-		str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		++i;
-	is_neg = 1;
-	if (str[i] == '-')
-		is_neg = -1;
-	if (is_neg == -1 || str[i] == '+')
-		++i;
-	res = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-		res = (res * 10) + (str[i++] - '0');
-	return (res * is_neg);
+	j = 0;
+	value = 0;
+	flag = 1;
+	while (((nptr[i] >= 9) && (nptr[i] <= 13)) || (nptr[i] == 32))
+		i++;
+	if (nptr[i] && nptr[i] == '-')
+	{
+		flag = -1;
+		i++;
+	}
+	else if (nptr[i] && nptr[i] == '+')
+		i++;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		value = (value * 10) + nptr[i] - '0';
+		i++;
+		j++;
+	}
+	return (max_nmb(value, flag, j));
 }

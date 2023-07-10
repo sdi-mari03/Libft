@@ -6,19 +6,21 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:55:36 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/10 19:19:16 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:38:55 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmeb, size_t size)
 {
-	void	*dst;
+	char	*ptr;
 
-	dst = malloc (size * nmemb);
-	if (!dst)
+	if (nmeb == SIZE_MAX && size == SIZE_MAX)
 		return (0);
-	ft_memset(dst, 0, (size * nmemb));
-	return (dst);
+	ptr = malloc((nmeb * size));
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, (nmeb * size));
+	return ((void *) ptr);
 }

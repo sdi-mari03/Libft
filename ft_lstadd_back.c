@@ -6,7 +6,7 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:31:21 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/10 17:35:00 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:45:07 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
+	t_list	*lst2;
 
-	if (!new)
-		return ;
-	if (!lst)
+	if (*lst)
 	{
-		*lst = new;
-		return ;
+		lst2 = ft_lstlast(*lst);
+		lst2->next = new;
 	}
-	tmp = ft_lstlast(*lst);
-	tmp->next = new;
+	else
+		(*lst) = new;
 }
