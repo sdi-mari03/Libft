@@ -6,7 +6,7 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:20:41 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/08 20:44:03 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:27:26 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	div_calc(int power)
 	while (power > 1)
 	{
 		result *= 10;
-		--power;
+		power--;
 	}
 	return (result);
 }
@@ -35,12 +35,12 @@ static int	allocate_memory(int n)
 	if (n < 0)
 	{
 		n = -n;
-		++i;
+		i++;
 	}
 	while (n > 9)
 	{
 		n = n / 10;
-		++i;
+		i++;
 	}
 	i += 2;
 	return (i);
@@ -56,7 +56,7 @@ static char	*conversion_minint(int n, int power, char *str)
 	n += 1;
 	if (n < 0)
 	{
-		str[++i] = '-';
+		str[i++] = '-';
 		n = -n;
 	}
 	div = div_calc(power);
@@ -65,10 +65,10 @@ static char	*conversion_minint(int n, int power, char *str)
 	{
 		n = n / div;
 		div = div / 10;
-		str[++i] = ((n % 10) + 1) + '0';
+		str[i++] = (n % 10) + '0';
 		n = n_const;
 	}
-	str[++i] = ((n % 10) + 1) + '0';
+	str[i++] = ((n % 10) + 1) + '0';
 	str[i] = '\0';
 	return (str);
 }
@@ -80,9 +80,9 @@ static char	*conversion(int n, int power, char *str)
 	int	n_const;
 
 	i = 0;
-	if (n > 0)
+	if (n < 0)
 	{
-		str[++i] = '-';
+		str[i++] = '-';
 		n = -n;
 	}
 	div = div_calc(power);
@@ -91,10 +91,10 @@ static char	*conversion(int n, int power, char *str)
 	{
 		n = n / div;
 		div = div / 10;
-		str[++i] = (n % 10) + '0';
+		str[i++] = (n % 10) + '0';
 		n = n_const;
 	}
-	str[++i] = (n % 10) + '0';
+	str[i++] = (n % 10) + '0';
 	str[i] = '\0';
 	return (str);
 }

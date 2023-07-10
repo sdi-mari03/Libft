@@ -6,7 +6,7 @@
 /*   By: sdi-mari <sdi-mari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:10:14 by sdi-mari          #+#    #+#             */
-/*   Updated: 2023/07/07 19:14:47 by sdi-mari         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:25:17 by sdi-mari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	char			*res;
+	unsigned int	i;
 
-	str = (char *)malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
+	if (!s)
+		return (0);
+	if (start >= ft_strlen((char *)s))
 	{
-		if (i >= start && j > len)
-		{
-			str[j] = s[j];
-			++j;
-		}
-		++i;
-	}	
-	str[j] = 0;
-	return (str);
+		res = malloc(1);
+		*res = 0;
+		return (res);
+	}
+	i = 0;
+	if (len > ft_strlen((char *)s))
+		len = ft_strlen((char *)s);
+	res = malloc(sizeof(char) * (len + 1));
+	if (!(res))
+		return (0);
+	while (i < len)
+	{
+		*(res + i) = s[start + i];
+		i++;
+	}
+	*(res + i) = 0;
+	return (res);
 }
